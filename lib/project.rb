@@ -9,12 +9,12 @@ class Project
     end
 
     def add_backer(backer)
-        Project.new(backer, self)
+        ProjectBacker.new(self, backer)
 
     end
 
     def backers 
-        Backer.all.select do |backers|
+        ProjectBacker.all.select do |backers|
             backers.project == self
         end
     end
