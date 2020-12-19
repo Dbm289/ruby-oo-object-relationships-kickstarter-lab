@@ -1,3 +1,4 @@
+require 'pry'
 class Project
 
     attr_accessor :title
@@ -14,9 +15,15 @@ class Project
     end
 
     def backers 
-        ProjectBacker.all.select do |backers|
+        #binding.pry
+
+        variable = ProjectBacker.all.select do |backers|
             backers.project == self
         end
+        variable.map do |backer_list|
+            backer_list.backer
+        end
+        #binding.pry
     end
 
 end
